@@ -1,0 +1,309 @@
+UNREACHED  no test executes this function at all  (6)
+  TinyDBPlugin.__init__
+      tinydb/mypy_plugin.py:14
+      no test executes this function
+  TinyDBPlugin.get_dynamic_class_hook
+      tinydb/mypy_plugin.py:19
+      no test executes this function
+  plugin
+      tinydb/mypy_plugin.py:38
+      no test executes this function
+  QueryLike.__call__
+      tinydb/queries.py:51
+      no test executes this function
+  Table.storage
+      tinydb/table.py:131
+      no test executes this function
+  with_typehint
+      tinydb/utils.py:21
+      no test executes this function
+
+CRASHED  the suite only noticed by accident: an exception, not an assertion. Nothing here says what this function should do  (56)
+  TinyDB.__init__
+      tinydb/database.py:87
+      tests/test_middlewares.py::test_caching_json_write raised RecursionError
+  TinyDB.table
+      tinydb/database.py:111
+      tests/test_middlewares.py::test_caching_json_write raised AttributeError
+  TinyDB.tables
+      tinydb/database.py:135
+      tests/test_tables.py::test_persist_table[json] raised TypeError
+  TinyDB.storage
+      tinydb/database.py:205
+      tests/test_middlewares.py::test_caching_json_write raised AttributeError
+  TinyDB.__getattr__
+      tinydb/database.py:251
+      tests/test_middlewares.py::test_caching_json_write raised TypeError
+  TinyDB.__len__
+      tinydb/database.py:260
+      tests/test_tinydb.py::test_doc_ids_json raised TypeError
+  TinyDB.__iter__
+      tinydb/database.py:270
+      tests/test_tinydb.py::test_tinydb_is_iterable[json] raised TypeError
+  Middleware.__init__
+      tinydb/middlewares.py:21
+      tests/test_middlewares.py::test_caching_json_write raised KeyError
+  Middleware.__call__
+      tinydb/middlewares.py:25
+      tests/test_middlewares.py::test_caching_json_write raised AttributeError
+  CachingMiddleware.__init__
+      tinydb/middlewares.py:88
+      tests/test_middlewares.py::test_caching_json_write raised KeyError
+  delete
+      tinydb/operations.py:16
+      tests/test_operations.py::test_delete[json] raised TypeError
+  add
+      tinydb/operations.py:26
+      tests/test_operations.py::test_add_int[json] raised TypeError
+  subtract
+      tinydb/operations.py:36
+      tests/test_operations.py::test_subtract[json] raised TypeError
+  set
+      tinydb/operations.py:46
+      tests/test_operations.py::test_set[json] raised TypeError
+  increment
+      tinydb/operations.py:56
+      tests/test_operations.py::test_increment[json] raised TypeError
+  decrement
+      tinydb/operations.py:66
+      tests/test_operations.py::test_decrement[json] raised TypeError
+  QueryInstance.__init__
+      tinydb/queries.py:73
+      tests/test_operations.py::test_add_int[json] raised RecursionError
+  QueryInstance.__call__
+      tinydb/queries.py:87
+      tests/test_operations.py::test_add_int[json] raised TypeError
+  QueryInstance.__and__
+      tinydb/queries.py:113
+      tests/test_queries.py::test_and raised TypeError
+  QueryInstance.__or__
+      tinydb/queries.py:123
+      tests/test_queries.py::test_or raised TypeError
+  QueryInstance.__invert__
+      tinydb/queries.py:133
+      tests/test_queries.py::test_not raised TypeError
+  Query.__init__
+      tinydb/queries.py:171
+      tests/test_operations.py::test_add_int[json] raised RecursionError
+  Query.__getattr__
+      tinydb/queries.py:190
+      tests/test_operations.py::test_add_int[json] raised TypeError
+  Query.__getitem__
+      tinydb/queries.py:204
+      tests/test_operations.py::test_add_int[json] raised TypeError
+  Query._generate_test
+      tinydb/queries.py:215
+      tests/test_operations.py::test_add_int[json] raised RuntimeError
+  Query.__eq__
+      tinydb/queries.py:251
+      tests/test_operations.py::test_add_int[json] raised RuntimeError
+  Query.__ne__
+      tinydb/queries.py:264
+      tests/test_queries.py::test_ne raised TypeError
+  Query.__lt__
+      tinydb/queries.py:277
+      tests/test_queries.py::test_lt raised TypeError
+  Query.__le__
+      tinydb/queries.py:290
+      tests/test_queries.py::test_le raised TypeError
+  Query.__gt__
+      tinydb/queries.py:303
+      tests/test_queries.py::test_gt raised TypeError
+  Query.__ge__
+      tinydb/queries.py:316
+      tests/test_queries.py::test_ge raised TypeError
+  Query.exists
+      tinydb/queries.py:329
+      tests/test_queries.py::test_has raised TypeError
+  Query.matches
+      tinydb/queries.py:340
+      tests/test_queries.py::test_all raised TypeError
+  Query.search
+      tinydb/queries.py:357
+      tests/test_queries.py::test_has raised TypeError
+  Query.test
+      tinydb/queries.py:376
+      tests/test_queries.py::test_custom raised TypeError
+  Query.any
+      tinydb/queries.py:401
+      tests/test_queries.py::test_any raised TypeError
+  Query.all
+      tinydb/queries.py:436
+      tests/test_queries.py::test_all raised TypeError
+  Query.one_of
+      tinydb/queries.py:469
+      tests/test_queries.py::test_one_of raised TypeError
+  Query.fragment
+      tinydb/queries.py:482
+      tests/test_queries.py::test_fragment raised TypeError
+  Query.noop
+      tinydb/queries.py:496
+      tests/test_queries.py::test_noop raised TypeError
+  Query.map
+      tinydb/queries.py:508
+      tests/test_queries.py::test_callable_in_path_with_chain raised AttributeError
+  where
+      tinydb/queries.py:524
+      tests/test_operations.py::test_add_int[json] raised TypeError
+  touch
+      tinydb/storages.py:16
+      tests/test_middlewares.py::test_caching_json_write raised FileNotFoundError
+  JSONStorage.__init__
+      tinydb/storages.py:84
+      tests/test_middlewares.py::test_caching_json_write raised AttributeError
+  MemoryStorage.__init__
+      tinydb/storages.py:169
+      tests/test_middlewares.py::test_caching_read raised AttributeError
+  MemoryStorage.read
+      tinydb/storages.py:177
+      tests/test_operations.py::test_add_int[memory] raised TypeError
+  Table.__init__
+      tinydb/table.py:94
+      tests/test_middlewares.py::test_caching_json_write raised AttributeError
+  Table.insert_multiple
+      tinydb/table.py:177
+      tests/test_tables.py::test_one_table[json] raised TypeError
+  Table.get
+      tinydb/table.py:335
+      tests/test_operations.py::test_add_int[json] raised TypeError
+  Table.__len__
+      tinydb/table.py:720
+      tests/test_tables.py::test_multiple_tables[json] raised TypeError
+  Table._get_next_id
+      tinydb/table.py:739
+      tests/test_middlewares.py::test_caching_json_write raised ValueError
+  Table._read_table
+      tinydb/table.py:774
+      tests/test_middlewares.py::test_caching_json_write raised AttributeError
+  LRUCache.__init__
+      tinydb/utils.py:57
+      tests/test_middlewares.py::test_caching_json_write raised AttributeError
+  LRUCache.length
+      tinydb/utils.py:66
+      tests/test_tables.py::test_lru_cache[json] raised TypeError
+  LRUCache.__len__
+      tinydb/utils.py:72
+      tests/test_tables.py::test_lru_cache[json] raised TypeError
+  LRUCache.__iter__
+      tinydb/utils.py:93
+      tests/test_utils.py::test_lru_cache_iteration_works raised TypeError
+
+GUARDED  a test asserted something that stopped holding  (39)
+  TinyDB.drop_tables
+      tinydb/database.py:163
+      caught by tests/test_tables.py::test_multiple_tables[json]
+  TinyDB.drop_table
+      tinydb/database.py:176
+      caught by tests/test_tinydb.py::test_drop_table
+  TinyDB.close
+      tinydb/database.py:214
+      caught by tests/test_middlewares.py::test_caching_json_write
+  Middleware.__getattr__
+      tinydb/middlewares.py:67
+      caught by tests/test_middlewares.py::test_caching_flush
+  CachingMiddleware.read
+      tinydb/middlewares.py:97
+      caught by tests/test_middlewares.py::test_caching
+  CachingMiddleware.write
+      tinydb/middlewares.py:108
+      caught by tests/test_middlewares.py::test_caching
+  CachingMiddleware.flush
+      tinydb/middlewares.py:120
+      caught by tests/test_middlewares.py::test_caching_flush
+  CachingMiddleware.close
+      tinydb/middlewares.py:132
+      caught by tests/test_middlewares.py::test_caching_json_write
+  is_sequence
+      tinydb/queries.py:28
+      caught by tests/test_queries.py::test_all
+  QueryInstance.is_cacheable
+      tinydb/queries.py:84
+      caught by tests/test_queries.py::test_custom_with_unhashable_params
+  QueryInstance.__eq__
+      tinydb/queries.py:105
+      caught by tests/test_queries.py::test_hash
+  JSONStorage.close
+      tinydb/storages.py:122
+      caught by tests/test_middlewares.py::test_caching_json_write
+  JSONStorage.read
+      tinydb/storages.py:125
+      caught by tests/test_middlewares.py::test_caching_json_write
+  JSONStorage.write
+      tinydb/storages.py:142
+      caught by tests/test_middlewares.py::test_caching_json_write
+  MemoryStorage.write
+      tinydb/storages.py:180
+      caught by tests/test_middlewares.py::test_caching_flush
+  Document.__init__
+      tinydb/table.py:30
+      caught by tests/test_middlewares.py::test_caching_json_write
+  Table.name
+      tinydb/table.py:124
+      caught by tests/test_middlewares.py::test_caching_json_write
+  Table.insert
+      tinydb/table.py:137
+      caught by tests/test_middlewares.py::test_caching_json_write
+  Table.all
+      tinydb/table.py:233
+      caught by tests/test_middlewares.py::test_caching_json_write
+  Table.search
+      tinydb/table.py:247
+      caught by tests/test_tables.py::test_lru_cache[json]
+  Table.contains
+      tinydb/table.py:398
+      caught by tests/test_tinydb.py::test_contains[json]
+  Table.update
+      tinydb/table.py:422
+      caught by tests/test_operations.py::test_add_int[json]
+  Table.update_multiple
+      tinydb/table.py:526
+      caught by tests/test_tinydb.py::test_update_multiple[json]
+  Table.upsert
+      tinydb/table.py:578
+      caught by tests/test_tinydb.py::test_upsert[json]
+  Table.remove
+      tinydb/table.py:620
+      caught by tests/test_storages.py::test_json_readwrite
+  Table.truncate
+      tinydb/table.py:693
+      caught by tests/test_tables.py::test_next_id[json]
+  Table.count
+      tinydb/table.py:704
+      caught by tests/test_tables.py::test_multiple_tables[json]
+  Table.clear_cache
+      tinydb/table.py:713
+      caught by tests/test_tables.py::test_lru_cache[json]
+  Table.__iter__
+      tinydb/table.py:727
+      caught by tests/test_middlewares.py::test_caching_json_write
+  Table._update_table
+      tinydb/table.py:799
+      caught by tests/test_middlewares.py::test_caching_json_write
+  LRUCache.lru
+      tinydb/utils.py:62
+      caught by tests/test_utils.py::test_lru_cache
+  LRUCache.clear
+      tinydb/utils.py:69
+      caught by tests/test_tables.py::test_lru_cache[json]
+  LRUCache.__contains__
+      tinydb/utils.py:75
+      caught by tests/test_tables.py::test_query_cache[json]
+  LRUCache.__setitem__
+      tinydb/utils.py:78
+      caught by tests/test_tables.py::test_lru_cache[json]
+  LRUCache.__delitem__
+      tinydb/utils.py:81
+      caught by tests/test_utils.py::test_lru_cache_delete
+  LRUCache.__getitem__
+      tinydb/utils.py:84
+      caught by tests/test_utils.py::test_lru_cache
+  LRUCache.get
+      tinydb/utils.py:96
+      caught by tests/test_tinydb.py::test_query_cache
+  LRUCache.set
+      tinydb/utils.py:106
+      caught by tests/test_tables.py::test_lru_cache[json]
+  freeze
+      tinydb/utils.py:150
+      caught by tests/test_queries.py::test_custom_with_unhashable_params
+

@@ -1,0 +1,112 @@
+CRASHED  the suite only noticed by accident: an exception, not an assertion. Nothing here says what this function should do  (26)
+  pytest_collection_modifyitems
+      src/redfirst/_plugin.py:12
+      tests/test_units.py::test_the_plugin_reports_the_collected_node_ids raised FileNotFoundError
+  pytest_runtest_makereport
+      src/redfirst/_plugin.py:25
+       raised CollectionError
+  parse_args
+      src/redfirst/cli.py:16
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised AttributeError
+  copy_repo
+      src/redfirst/cli.py:31
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  baseline_green
+      src/redfirst/cli.py:46
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  main
+      src/redfirst/cli.py:52
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised KeyError
+  measure
+      src/redfirst/mapping.py:17
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  tests_for
+      src/redfirst/mapping.py:39
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  node_ids
+      src/redfirst/mapping.py:49
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  nodes_for_context
+      src/redfirst/mapping.py:84
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  replacement_for
+      src/redfirst/mutate.py:10
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  indent_of
+      src/redfirst/mutate.py:18
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  emptied
+      src/redfirst/mutate.py:23
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised RuntimeError
+  source_of
+      src/redfirst/propose.py:89
+      tests/test_propose.py::test_the_function_source_is_read_back_whole raised AttributeError
+  for_all
+      src/redfirst/propose.py:116
+      tests/test_propose.py::test_a_rejected_proposal_is_counted_and_not_shown raised TypeError
+  group
+      src/redfirst/report.py:25
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  render
+      src/redfirst/report.py:32
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised KeyError
+  render_html
+      src/redfirst/report.py:78
+      tests/test_units.py::test_the_html_page_escapes_the_report raised TypeError
+  pytest_command
+      src/redfirst/run.py:35
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  run_tests
+      src/redfirst/run.py:51
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  judge
+      src/redfirst/run.py:73
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised AttributeError
+  decorator_names
+      src/redfirst/targets.py:34
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  body_without_docstring
+      src/redfirst/targets.py:53
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised KeyError
+  trivial
+      src/redfirst/targets.py:61
+      tests/test_targets.py::test_a_function_that_already_does_nothing_is_not_a_target raised IndexError
+  collect
+      src/redfirst/targets.py:77
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+  _walk
+      src/redfirst/targets.py:95
+      tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard raised TypeError
+
+GUARDED  a test asserted something that stopped holding  (10)
+  install_plugin
+      src/redfirst/cli.py:38
+      caught by tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard
+  api_key
+      src/redfirst/propose.py:46
+      caught by tests/test_propose.py::test_no_key_means_no_call_and_no_claim
+  ask
+      src/redfirst/propose.py:53
+      caught by tests/test_propose.py::test_no_key_means_no_call_and_no_claim
+  extract
+      src/redfirst/propose.py:78
+      caught by tests/test_units.py::test_a_half_open_fence_is_still_code
+  module_path
+      src/redfirst/propose.py:94
+      caught by tests/test_propose.py::test_the_import_path_matches_the_package
+  check
+      src/redfirst/propose.py:99
+      caught by tests/test_propose.py::test_a_proposal_that_cannot_tell_the_two_versions_apart_is_rejected
+  exit_code
+      src/redfirst/report.py:63
+      caught by tests/test_end_to_end.py::test_a_suite_that_checks_everything_exits_clean
+  Target.label
+      src/redfirst/targets.py:27
+      caught by tests/test_units.py::test_a_target_labels_itself_by_its_display_path
+  Target.covers
+      src/redfirst/targets.py:30
+      caught by tests/test_end_to_end.py::test_a_crash_is_not_counted_as_a_guard
+  is_generator
+      src/redfirst/targets.py:46
+      caught by tests/test_mutate.py::test_a_generator_stays_a_generator
+

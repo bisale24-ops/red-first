@@ -27,7 +27,7 @@ Coverage tells you a line *ran*. It cannot tell you anything *checked* it.
 |---|---:|---:|---:|---:|---:|---:|
 | [tinydb](https://github.com/msiemens/tinydb) | 101 | 39 | 56 | 6 | 0 | 19 s |
 | [python-tabulate](https://github.com/astanin/python-tabulate) | 73 | 29 | 43 | 0 | 0 | 111 s |
-| Red First itself | 35 | 10 | 25 | 0 | 0 | 34 s |
+| Red First itself | 36 | 10 | 26 | 0 | 0 | 35 s |
 
 Neither library has an unguarded function, and the report says so plainly — a tool that always
 finds something is not measuring anything. The finding in these runs is the other column: in
@@ -88,7 +88,7 @@ It works on a copy of the repository. Your files are never mutated.
 ## Tests
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m pytest tests -q     # 31 tests, no network
+PYTHONPATH=src .venv/bin/python -m pytest tests -q     # 32 tests, no network
 ```
 
 They build small repositories on the spot — a function with an assertion behind it, one that is

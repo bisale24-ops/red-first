@@ -1,0 +1,16 @@
+CRASHED  the suite only noticed by accident: an exception, not an assertion. Nothing here says what this function should do  (26)
+  pytest_collection_modifyitems
+      src/redfirst/_plugin.py:12
+  pytest_runtest_makereport
+      src/redfirst/_plugin.py:25
+  parse_args
+      src/redfirst/cli.py:16
+  ...
+GUARDED  a test asserted something that stopped holding  (10)
+  install_plugin
+      src/redfirst/cli.py:38
+  api_key
+      src/redfirst/propose.py:46
+  ask
+      src/redfirst/propose.py:53
+  ...

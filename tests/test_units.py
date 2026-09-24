@@ -80,6 +80,28 @@ def test_a_target_labels_itself_by_its_display_path(tmp_path):
     assert target.label == "pkg/m.py:1 shout"
 
 
+def test_the_plugin_reports_the_collected_node_ids(tmp_path, monkeypatch):
+    """Reading node ids off pytest's printed output broke on a project that sets `-v`."""
+    import json
+
+    from redfirst import _plugin
+
+    collected = tmp_path / "collected.json"
+    monkeypatch.setenv("REDFIRST_COLLECT", str(collected))
+
+    class Item:
+        def __init__(self, nodeid):
+            self.nodeid = nodeid
+
+    _plugin.pytest_collection_modifyitems([Item("t.py::test_a[x]"), Item("t.py::test_b")])
+    assert json.loads(collected.read_text()) == ["t.py::test_a[x]", "t.py::test_b"]
+
+    collected.unlink()
+    monkeypatch.delenv("REDFIRST_COLLECT")
+    _plugin.pytest_collection_modifyitems([Item("t.py::test_a")])
+    assert not collected.exists()
+
+
 def test_the_plugin_records_why_a_test_failed(tmp_path, monkeypatch):
     """The hook runs inside the inner pytest processes, so it is exercised directly here."""
     import json

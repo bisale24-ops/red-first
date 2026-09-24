@@ -1,0 +1,24 @@
+UNREACHED  no test executes this function at all  (6)
+  TinyDBPlugin.__init__
+      tinydb/mypy_plugin.py:14
+  TinyDBPlugin.get_dynamic_class_hook
+      tinydb/mypy_plugin.py:19
+  plugin
+      tinydb/mypy_plugin.py:38
+  ...
+CRASHED  the suite only noticed by accident: an exception, not an assertion. Nothing here says what this function should do  (56)
+  TinyDB.__init__
+      tinydb/database.py:87
+  TinyDB.table
+      tinydb/database.py:111
+  TinyDB.tables
+      tinydb/database.py:135
+  ...
+GUARDED  a test asserted something that stopped holding  (39)
+  TinyDB.drop_tables
+      tinydb/database.py:163
+  TinyDB.drop_table
+      tinydb/database.py:176
+  TinyDB.close
+      tinydb/database.py:214
+  ...

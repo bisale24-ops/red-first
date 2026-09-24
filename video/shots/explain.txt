@@ -1,0 +1,14 @@
+UNGUARDED  nothing in the suite would notice this function doing nothing  (1)
+  shout
+      pkg/calc.py:4
+      1 test(s) still passed
+      proposed assertion, checked against both versions:
+        def test_shout():
+            from pkg.calc import shout
+            assert shout("hello") == "HELLO!"
+
+GUARDED  a test asserted something that stopped holding  (1)
+  add
+      pkg/calc.py:1
+      caught by tests/test_calc.py::test_add
+
