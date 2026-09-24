@@ -1,0 +1,7 @@
+/devpost/learner-profile.md
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+/work/

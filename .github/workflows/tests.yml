@@ -1,0 +1,21 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest coverage
+      - name: Unit tests
+        run: PYTHONPATH=src python -m pytest tests -q
+      - name: Red First on Red First
+        # The tool's own report, in its own CI. Non-zero when a function nothing defends is added.
+        run: PYTHONPATH=src python -m redfirst.cli --repo . --source src/redfirst --tests "pytest -q" --max-seconds 600
