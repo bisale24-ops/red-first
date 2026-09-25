@@ -6,6 +6,7 @@ syntax: no imports are executed, so a repository that cannot be imported can sti
 import ast
 import dataclasses
 import pathlib
+import warnings
 
 # Emptying these tells you nothing. A missing __repr__ or a missing log line is not a defect the
 # suite should be expected to notice, and reporting them buries the findings that matter.
@@ -85,7 +86,9 @@ def collect(root, ignore=("tests", "test", ".venv", "build", "dist")):
         if relative.name.startswith("test_") or relative.name.endswith("_test.py"):
             continue
         try:
-            tree = ast.parse(path.read_text(encoding="utf-8"))
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                tree = ast.parse(path.read_text(encoding="utf-8"))
         except (SyntaxError, UnicodeDecodeError):
             continue
         found.extend(_walk(tree, path))
