@@ -47,6 +47,29 @@ invisible from the outside.
 The same run named nine functions no test executed. They have tests now. The tool's own report is
 in CI, and the build fails on an unguarded function.
 
+## Prior art
+
+Mutation testing is not a new idea, and Python has had tools for it for years:
+[mutmut](https://github.com/boxed/mutmut), [cosmic-ray](https://github.com/sixty-north/cosmic-ray)
+and [mutpy](https://github.com/mutpy/mutpy). They mutate far more aggressively than this does —
+operators, constants, boundaries, branch conditions — and if you want a mutation score, use one of
+them.
+
+Red First makes one mutation, not many: it empties a function's body entirely. That is a
+deliberately blunt instrument, and it buys three things.
+
+- **A question a reader can answer.** "Would any test notice if this function did nothing at all?"
+  has an obvious right answer for every function in a codebase; a mutation score does not.
+- **A cost that fits a pull request.** Only the tests that actually cover the mutated line are
+  re-run, taken from coverage.py's per-test contexts, so the run is proportional to the functions
+  you touched rather than to the suite.
+- **Four verdicts instead of a percentage.** `guarded`, `crashed`, `unguarded`, `unreached` — and
+  the ones that matter, the unguarded, are named with their file and line and make the command exit
+  non-zero. `crashed` is kept separate on purpose: a test that fails because the function returned
+  `None` and something downstream blew up is not the same as a test that checked the result.
+
+Use mutmut to grade a suite. Use this to find the functions nothing defends before you ship them.
+
 ## Where the model is, and is not
 
 Behind `--explain`, a model is asked for one test for a function nothing defends. The suggestion
@@ -107,6 +130,18 @@ Three of the bugs were invisible from the outside, and each is now a test:
 - **Parsing pytest's output.** Node ids were read off `--collect-only`; a project that sets `-v`
   prints a tree with no node ids in it, and every function came back unmatched. The plugin reports
   them directly now.
+
+## When coverage contexts are unavailable
+
+If `coverage` cannot produce per-test contexts — it is missing, or the suite runs in a way that
+defeats them — the tool does not stop. It runs the whole suite for every function instead, and
+says so in the first line of the report, because one verdict changes meaning: a function no test
+calls at all cannot be told apart from one the tests call and ignore, so it lands under
+`unguarded` rather than `unreached`.
+
+That line used to read "slower, same verdicts". It was wrong, and it was found the way these
+things are found — by running the tool in an environment without `coverage` and reading a verdict
+that did not match the fixture.
 
 ## Honest limits
 

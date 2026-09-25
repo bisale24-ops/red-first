@@ -29,9 +29,21 @@ def group(verdicts):
     return grouped
 
 
+WHOLE_SUITE_NOTICE = (
+    "Per-test coverage contexts were unavailable, so every function was judged against the whole "
+    "suite.\nThat is slower, and it changes what one verdict means: a function no test calls at "
+    "all cannot be\ntold apart from one the tests call and ignore, so it appears under UNGUARDED "
+    "rather than UNREACHED."
+)
+
+
 def render(verdicts, proposals=(), discarded=0, whole_suite=False):
     grouped = group(verdicts)
     lines = []
+    if whole_suite:
+        # at the top, not the bottom: it changes how every UNGUARDED below must be read
+        lines.append(WHOLE_SUITE_NOTICE)
+        lines.append("")
     for kind in ORDER:
         entries = grouped[kind]
         if not entries:
@@ -54,9 +66,6 @@ def render(verdicts, proposals=(), discarded=0, whole_suite=False):
     if discarded:
         lines.append(f"{discarded} proposed assertion(s) were dropped: they could not tell the "
                      f"real function from the empty one.")
-    if whole_suite:
-        lines.append("Per-test coverage contexts were unavailable, so every function was judged "
-                     "against the whole suite. Slower, same verdicts.")
     return "\n".join(lines).rstrip() + "\n"
 
 
